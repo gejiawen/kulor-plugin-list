@@ -1,0 +1,18 @@
+{
+  "name": "kulor-plugin-list",
+  "version": "0.0.1",
+  "description": "list",
+  "main": "index.jade",
+  "keywords": [
+    "kulor-list"
+  ],
+  "authors": [
+    "bo.cheng <chen8114@sina.com>"
+  ],
+  "repository"  : {
+    "type"    : "git" ,
+    "url"     : "git@github.com:kulor-developer/kulor-plugin-list.git"
+  } ,
+  "license": "MIT",
+  "homepage": "git@github.com:kulor-developer/kulor.git"
+}
