@@ -111,6 +111,19 @@ define( "List" , [ "Base" , "DataView" , "Ajax" , "EventBind" ] , function( Base
             } );
             return this;
         } ,
+        /*!
+         *  在无初始化列表数据下
+         *  绘制list列表底部page分页
+         */
+        drawPageFooter : function( $page , total ){
+            total   = total || this._listConfig.pageSize;
+            this._listConfig.total         = total;
+            this._listConfig.totalPage     = total / this._listConfig.pageSize;
+            this._listConfig.ready         = "waiting";
+            this.drawPageDataModal( $page );
+            this._listConfig.ready         = true;
+            return this;
+        } ,
         /*! 
          *  设置公共配置
          *  @opt        {json}
