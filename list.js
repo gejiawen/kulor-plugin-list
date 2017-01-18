@@ -12,7 +12,7 @@ define( "List" , [ "Base" , "DataView" , "Ajax" , "EventBind" ] , function( Base
                     pageBefore  : "",
                     pageAfter   : "",
                 };
-            if( this._listConfig.ready === "waiting" ) { 
+            if( this._listConfig.ready === "waiting" ) {
                 while( _pages.length < this._listConfig.pageBtnNum ){
                     _btnLen     = _pages.length;
                     _btnNum     = _currentPage - _num;
@@ -29,7 +29,7 @@ define( "List" , [ "Base" , "DataView" , "Ajax" , "EventBind" ] , function( Base
             }
             return this.getTemplate( _insertPage , "uiSubListPageTemplate" );
         }
-    } , 
+    } ,
     /*!
      *
      */
@@ -38,7 +38,7 @@ define( "List" , [ "Base" , "DataView" , "Ajax" , "EventBind" ] , function( Base
     } , {
         extend      : DataView ,
         implements  : [ new Ajax() , new EventBind() ] ,
-        __listConfig: { 
+        __listConfig: {
             page        : 1 ,
             pageSize    : 10 ,
             totalPage   : 1 ,
@@ -53,11 +53,11 @@ define( "List" , [ "Base" , "DataView" , "Ajax" , "EventBind" ] , function( Base
         } ,
         /*!
          *  重写DataView里的 set/setDataView 方法
-         *  @json   {json}  
+         *  @json   {json}
          *  接受total为总条目数
          */
         setListDataView   : function( json ){
-            if ( json.total ) {
+            if ( $.isNumeric(json.total) ) {
                 this._listConfig.total      = json.total;
                 this._listConfig.totalPage  = Math.ceil( json.total / this._listConfig.pageSize );
             }
@@ -83,7 +83,7 @@ define( "List" , [ "Base" , "DataView" , "Ajax" , "EventBind" ] , function( Base
                 "a[func='pre']::click"    : "pre" ,
                 "a[func='next']::click"    : "next" ,
                 "a[func='last']::click"    : "last" ,
-                "a[func='goto']::click"    : "gotoPage" 
+                "a[func='goto']::click"    : "gotoPage"
             } , $page , {
                 beforeEventBind     : function(){
                     return _self._listConfig.ready === true ? true : false;
@@ -95,7 +95,7 @@ define( "List" , [ "Base" , "DataView" , "Ajax" , "EventBind" ] , function( Base
                     _self._listConfig.page  = 1;
                 } ,
                 pre     : function(){
-                    _self._listConfig.page  = _self._listConfig.page > 1 ? 
+                    _self._listConfig.page  = _self._listConfig.page > 1 ?
                                                 --_self._listConfig.page : 1;
                 } ,
                 next    : function(){
@@ -124,7 +124,7 @@ define( "List" , [ "Base" , "DataView" , "Ajax" , "EventBind" ] , function( Base
             this._listConfig.ready         = true;
             return this;
         } ,
-        /*! 
+        /*!
          *  设置公共配置
          *  @opt        {json}
          *  @toGlobal   {boolean}
