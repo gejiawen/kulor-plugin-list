@@ -1,6 +1,6 @@
 {
   "name": "kulor-plugin-list",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "list",
   "main": "index.jade",
   "keywords": [
@@ -15,7 +15,7 @@
   } ,
   "kulor"     : {
     "requireName"   : "list" ,
-    "jsFileName"    : "list.js"
+    "jsFileName"    : "list"
   } ,
   "license": "MIT",
   "homepage": "git@github.com:kulor-developer/kulor.git"

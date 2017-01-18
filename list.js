@@ -57,7 +57,7 @@ define( "List" , [ "Base" , "DataView" , "Ajax" , "EventBind" ] , function( Base
          *  接受total为总条目数
          */
         setListDataView   : function( json ){
-            if ( json.total ) {
+            if ( $.isNumeric( json.total ) ){
                 this._listConfig.total      = json.total;
                 this._listConfig.totalPage  = Math.ceil( json.total / this._listConfig.pageSize );
             }
@@ -109,19 +109,6 @@ define( "List" , [ "Base" , "DataView" , "Ajax" , "EventBind" ] , function( Base
                     _self._listConfig.page  = parseInt( $( this ).attr( "_page" ) );
                 }
             } );
-            return this;
-        } ,
-        /*!
-         *  在无初始化列表数据下
-         *  绘制list列表底部page分页
-         */
-        drawPageFooter : function( $page , total ){
-            total   = total || this._listConfig.pageSize;
-            this._listConfig.total         = total;
-            this._listConfig.totalPage     = total / this._listConfig.pageSize;
-            this._listConfig.ready         = "waiting";
-            this.drawPageDataModal( $page );
-            this._listConfig.ready         = true;
             return this;
         } ,
         /*! 
