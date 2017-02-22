@@ -144,7 +144,7 @@ define( "List" , [ "Base" , "DataView" , "Ajax" , "EventBind" ] , function( Base
         } ,
         gotoListPage : function( page , pageSize ){
             if ( this._listConfig.ajaxFunc ) {
-                this._listConfig.page        = page || this._listConfig.page;
+                this._listConfig.page        = page ? parseInt(page) : this._listConfig.page;
                 this._listConfig.pageSize    = pageSize || this._listConfig.pageSize;
                 this._listConfig.ready = "waiting";
                 this._listConfig.ajaxFunc.call( this , this._listConfig.page , this._listConfig.pageSize );
