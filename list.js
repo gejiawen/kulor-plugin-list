@@ -57,7 +57,7 @@ define( "List" , [ "Base" , "DataView" , "Ajax" , "EventBind" ] , function( Base
          *  接受total为总条目数
          */
         setListDataView   : function( json ){
-            if ( $.isNumeric(json.total) ) {
+            if ( $.isNumeric( json.total ) ){
                 this._listConfig.total      = json.total;
                 this._listConfig.totalPage  = Math.ceil( json.total / this._listConfig.pageSize );
             }
@@ -124,7 +124,7 @@ define( "List" , [ "Base" , "DataView" , "Ajax" , "EventBind" ] , function( Base
             this._listConfig.ready         = true;
             return this;
         } ,
-        /*!
+        /*! 
          *  设置公共配置
          *  @opt        {json}
          *  @toGlobal   {boolean}
